@@ -6,6 +6,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.applet.AppletContext;
 
 public class DemoTest {
+/*  github:https://github.com/huangsw66/Sping5Demo.git
+    username: huangsw66
+    --token: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
+    token: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
+
+
+    */
+
 //            1、https://blog.csdn.net/weixin_45496190/article/details/107059038
 //            2、https://blog.csdn.net/weixin_45496190/article/details/107067200
 //            3、https://blog.csdn.net/weixin_45496190/article/details/107071204
