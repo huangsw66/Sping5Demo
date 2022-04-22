@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--        1、IOC操作Bean管理-->
+<!--        a）Bean管理就是两个操作：（1）Spring创建对象；（2）Spring注入属性-->
+        <!--1 配置User对象创建-->
+        <bean id="user1" class="com.audit.spring5.User"></bean>
+        <!--（2）spring方式： set方法注入属性-->
+        <bean id="book1" class="com.audit.spring5.Book">
+                <!--使用property完成属性注入
+                    name：类里面属性名称
+                    value：向属性注入的值
+                -->
+                <property name="name" value="Hello"></property>
+                <property name="author" value="World"></property>
+        </bean>
+        <!--（2）spring方式：有参数构造注入属性-->
+        <bean id="orders" class="com.audit.spring5.Orders">
+                <constructor-arg name="oname" value="Hello"></constructor-arg>
+                <constructor-arg name="address" value="China！"></constructor-arg>
+        </bean>
+
+
+        <!--  bean的作用域       scope:singleton 单例（默认） prototype多例-->
+        <bean id = "user" class="com.audit.spring5.User" scope="singleton">
+
+        </bean>
+</beans>
