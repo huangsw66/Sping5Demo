@@ -3,6 +3,7 @@ package com.audit.spring5;
 public class Book {
     private String name;
     private String author;
+    private String address;
 
     public void setName(String name) {
         this.name = name;
@@ -18,5 +19,13 @@ public class Book {
 
     public String getAuthor() {
         return author;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

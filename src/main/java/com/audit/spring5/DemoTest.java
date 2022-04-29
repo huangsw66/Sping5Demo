@@ -10,10 +10,8 @@ public class DemoTest {
     username: huangsw66
     --token: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
     token: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
-
-
     */
-
+//Spring教程地址
 //            1、https://blog.csdn.net/weixin_45496190/article/details/107059038
 //            2、https://blog.csdn.net/weixin_45496190/article/details/107067200
 //            3、https://blog.csdn.net/weixin_45496190/article/details/107071204
@@ -21,7 +19,7 @@ public class DemoTest {
 //            5、https://blog.csdn.net/weixin_45496190/article/details/107092107
 
 /*    一、IOC容器
-        1、什么是IOC（控制反转）aaaaa
+        1、什么是IOC（控制反转）
             a）把对象创建和对象之间的调用过程，交给Spring进行管理
             b）使用IOC目的：为了降低耦合度
         2、IOC底层
@@ -38,4 +36,6 @@ public class DemoTest {
         Book book = a.getBean("book1",Book.class);
         System.out.println(book.getName()+book.getAuthor());
     }
+
+
 }

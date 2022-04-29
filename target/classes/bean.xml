@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       xmlns:p="http://www.springframework.org/schema/p"><!--需要配置P标签时，需要引入-->
 
 <!--        1、IOC操作Bean管理-->
 <!--        a）Bean管理就是两个操作：（1）Spring创建对象；（2）Spring注入属性-->
+<!--        2、基于XML配置文件创建对象-->
         <!--1 配置User对象创建-->
         <bean id="user1" class="com.audit.spring5.User"></bean>
+<!--        3、基于XML方式注入属性（DI：依赖注入（注入属性））-->
         <!--（2）spring方式： set方法注入属性-->
         <bean id="book1" class="com.audit.spring5.Book">
                 <!--使用property完成属性注入
@@ -16,12 +19,37 @@
                 <property name="name" value="Hello"></property>
                 <property name="author" value="World"></property>
         </bean>
+<!--        b）有参构造函数注入-->
         <!--（2）spring方式：有参数构造注入属性-->
         <bean id="orders" class="com.audit.spring5.Orders">
                 <constructor-arg name="oname" value="Hello"></constructor-arg>
                 <constructor-arg name="address" value="China！"></constructor-arg>
         </bean>
+        <!--c）p名称空间注入（了解即可）-->
+        <!--1、添加p名称空间在配置文件头部-->
+<!--        <?xml version="1.0" encoding="UTF-8"?>-->
+<!--        <beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--               xmlns:p="http://www.springframework.org/schema/p"		&lt;!&ndash;在这里添加一行p&ndash;&gt;-->
+        <!--2、在bean标签进行属性注入（算是set方式注入的简化操作）-->
+        <bean id="book2" class="com.audit.spring5.Book" p:name="very" p:author="good">
+        </bean>
+ <!--   4、注入空值和特殊符号-->
+        <bean id="book3" class="com.audit.spring5.Book">
+                <!--（1）null值-->
+                <property name="author">
+                        <null/><!--属性里边添加一个null标签-->
+                </property>
 
+                <!--（2）特殊符号赋值-->
+                <!--属性值包含特殊符号
+                  a 把<>进行转义 &lt; &gt;
+                  b 把带特殊符号内容写到CDATA
+                 -->
+                <property name="address">
+                        <value><![CDATA[<<南京>>]]></value>
+                </property>
+        </bean>
 
         <!--  bean的作用域       scope:singleton 单例（默认） prototype多例-->
         <bean id = "user" class="com.audit.spring5.User" scope="singleton">
